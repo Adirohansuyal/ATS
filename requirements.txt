@@ -119,7 +119,8 @@ docx==0.2.4
 duckduckgo_search==8.0.5
 durationpy==0.9
 einops==0.8.1
-embedchain==0.1.128
+embedchain
+
 emoji==2.14.1
 et_xmlfile==2.0.0
 etelemetry==0.3.1
