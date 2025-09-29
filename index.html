@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume ATS Scorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Powered Resume ATS Scorer</h1>
+        <div class="input-section">
+            <div class="input-group">
+                <label for="job-desc">Paste Job Description:</label>
+                <textarea id="job-desc" rows="10"></textarea>
+            </div>
+            <div class="input-group">
+                <div class="resume-inputs">
+                    <label for="resume-upload">Upload Resume (PDF):</label>
+                    <input type="file" id="resume-upload" accept=".pdf">
+                    <label for="resume-text">Or paste Resume Text:</label>
+                    <textarea id="resume-text" rows="10"></textarea>
+                </div>
+            </div>
+        </div>
+        <button id="score-button">Score Resume</button>
+        <div id="results" class="hidden">
+            <h2>ATS Score & Feedback</h2>
+            <div id="score"></div>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <h2>Missing Keywords</h2>
+            <div id="missing-keywords"></div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
