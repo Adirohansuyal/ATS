@@ -56,7 +56,7 @@ cachelib==0.13.0
 cachetools==5.5.0
 Cartopy==0.24.1
 catalogue==2.0.10
-catboost==1.2.7
+catboost>=1.2.5
 certifi==2025.6.15
 cffi==1.15.1
 cftime==1.6.4.post1
