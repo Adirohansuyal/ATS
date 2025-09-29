@@ -37,12 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     async function sendToServer(jobDesc, resumeText) {
+        resultsEl.classList.remove('visible');
         resultsEl.classList.add('hidden');
         scoreButton.disabled = true;
-        scoreButton.textContent = 'Scoring...';
+        scoreButton.innerHTML = '<span class="spinner"></span>Scoring...';
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/score', {
+            const response = await fetch('https://ats-5-lh80.onrender.com/score', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 progressBar.textContent = data.match_percentage > 0 ? `${data.match_percentage}%` : '';
                 missingKeywordsEl.textContent = data.missing_keywords.join(', ');
                 resultsEl.classList.remove('hidden');
-        resultsEl.classList.add('visible');
+                resultsEl.classList.add('visible');
             } else {
                 alert(data.error);
             }
