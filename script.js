@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const jobDescEl = document.getElementById('job-desc');
     const resumeUploadEl = document.getElementById('resume-upload');
-    const resumeTextEl = document.getElementById('resume-text');
     const scoreButton = document.getElementById('score-button');
     const resultsEl = document.getElementById('results');
     const scoreEl = document.getElementById('score');
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     scoreButton.addEventListener('click', async () => {
         const jobDesc = jobDescEl.value;
         const resumeFile = resumeUploadEl.files[0];
-        const resumeText = resumeTextEl.value;
 
         let resumeContent = '';
 
@@ -28,11 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 sendToServer(jobDesc, resumeContent);
             };
             reader.readAsArrayBuffer(resumeFile);
-        } else if (resumeText) {
-            resumeContent = resumeText;
-            sendToServer(jobDesc, resumeContent);
         } else {
-            alert('Please upload a resume or paste the text.');
+            alert('Please upload a resume.');
         }
     });
 
@@ -43,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scoreButton.innerHTML = '<span class="spinner"></span>Scoring...';
 
         try {
-            const response = await fetch('https://ats-5-lh80.onrender.com/score', {
+            const response = await fetch('https://ats-7-0bmx.onrender.com/score', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
