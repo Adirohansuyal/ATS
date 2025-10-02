@@ -65,7 +65,7 @@ def score_resume(resume_summary, job_summary):
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",  
         messages=[
-            {"role": "system", "content": "You are an expert ATS evaluator."},
+            {"role": "system", "content": "You are an expert ATS evaluator. You have to carefully compare the Resume against the job description. Raise the error Resume not found!, if the input file is not a resume."},
             {"role": "user", "content": f"""
 Resume Summary:
 {resume_summary}
@@ -75,8 +75,10 @@ Job Description Summary:
 
 Task:
 1. Give an ATS match percentage (0-100).
-2. Highlight strengths and weaknesses. Use markdown bolding (e.g., **word**) to emphasize only the most critical keywords or phrases. Be selective with bolding.
+2. Highlight strengths and weaknesses. Use markdown bolding (e.g., **word**) to emphasize only the most critical keywords or phrases. Be selective with bolding Do not Bold the unnecessary words.
 3. Suggest improvements for better match.
+4. You are an expert ATS evaluator. You have to carefully compare the Resume against the job description. Raise the error Resume not found!, if the input file is not a resume.
+
 """}
         ]
     )
