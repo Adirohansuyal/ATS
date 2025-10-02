@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Resume ATS Scorer</title>
@@ -12,21 +11,39 @@
 </head>
 <body>
     <div class="container">
-        <h1>AI-Powered Resume ATS Scorer</h1>
-        <div class="input-section">
-            <div class="input-group">
-                <label for="job-desc">Paste Job Description:</label>
-                <textarea id="job-desc" rows="10"></textarea>
+        <header class="header">
+            <h1>LLM-Powered Resume ATS Scorer</h1>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
             </div>
-            <div class="input-group">
-                <div class="resume-inputs">
+        </header>
+
+        <main class="main-content">
+            <div class="card input-card">
+                <div class="input-group">
+                    <label for="job-desc">Paste Job Description:</label>
+                    <textarea id="job-desc" rows="10"></textarea>
+                </div>
+                <div class="input-group">
                     <label for="resume-upload">Upload Resume (PDF):</label>
                     <input type="file" id="resume-upload" accept=".pdf">
                 </div>
             </div>
+
+            <div class="card preview-card">
+                <h2>Resume Preview</h2>
+                <div id="resume-preview"></div>
+            </div>
+        </main>
+
+        <div class="button-container">
+            <button id="score-button">Score Your Resume</button>
         </div>
-        <button id="score-button">Score Resume</button>
-        <div id="results" class="hidden">
+
+        <div id="results" class="card results-card hidden">
             <h2>ATS Score & Feedback</h2>
             <div id="score"></div>
             <div class="progress-bar">
@@ -36,6 +53,9 @@
             <div id="missing-keywords"></div>
         </div>
     </div>
+    <footer>
+        <p>© 2025 Aditya Suyal. All rights reserved.</p>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script src="script.js"></script>
 </body>
